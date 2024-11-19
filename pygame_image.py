@@ -22,14 +22,14 @@ def main():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
         #print(key_lst[pg.K_UP], key_lst[pg.K_DOWN], key_lst[pg.K_LEFT], key_lst[pg.K_RIGHT])
+       
+        kk_rct.move_ip(-1, 0) #常に左に動く
         if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
             kk_rct.move_ip(0, -1)
         if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
             kk_rct.move_ip(0, +1)
-        if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
-            kk_rct.move_ip(-1, 0)
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip(+1, 0)
+            kk_rct.move_ip(+2, 0)
         
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])#screen surfaceに張り付ける
