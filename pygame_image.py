@@ -20,6 +20,8 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+        key_lst = pg.key.get_pressed()
+        print(key_lst[pg.K_UP], key_lst[pg.K_DOWN], key_lst[pg.K_LEFT], key_lst[pg.K_RIGHT])
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])#screen surfaceに張り付ける
         screen.blit(bg_img2, [x+1600, 0])
