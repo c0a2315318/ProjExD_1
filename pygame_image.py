@@ -12,11 +12,11 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     kk_img = pg.image.load("fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
-    tmr = 0
+    tmr = 0 
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        x = tmr
+        x = tmr % 800
         screen.blit(bg_img, [-x, 0])#screen surfaceに張り付ける
         screen.blit(kk_img, [300, 200])
         pg.display.update()
