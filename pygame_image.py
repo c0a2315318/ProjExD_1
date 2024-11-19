@@ -23,13 +23,37 @@ def main():
         key_lst = pg.key.get_pressed()
         #print(key_lst[pg.K_UP], key_lst[pg.K_DOWN], key_lst[pg.K_LEFT], key_lst[pg.K_RIGHT])
        
-        kk_rct.move_ip(-1, 0) #常に左に動く
-        if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
-            kk_rct.move_ip(0, -1)
-        if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
-            kk_rct.move_ip(0, +1)
-        if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip(+2, 0)
+        # kk_rct.move_ip(-1, 0) #常に左に動く
+        # if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
+        #     kk_rct.move_ip(0, -1)
+        # if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
+        #     kk_rct.move_ip(0, +1)
+        # if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
+        #     kk_rct.move_ip(+2, 0)
+
+        if key_lst[pg.K_UP]:
+            move_r = -1
+            move_l = -1
+            #kk_rct.move_ip(0, -1)
+        elif key_lst[pg.K_DOWN]: 
+            move_r = +1
+            move_l = -1
+            #kk_rct.move_ip(0, +1)
+        elif key_lst[pg.K_LEFT]:  
+            move_r = 0
+            move_l = -2
+            #kk_rct.move_ip(-1, 0)
+        elif key_lst[pg.K_RIGHT]:  
+            move_r = 0
+            move_l = +2
+            #kk_rct.move_ip(+2, 0)
+        else:
+            move_r = 0
+            move_l = -1
+
+        kk_rct.move_ip(move_l, move_r)
+
+
         
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])#screen surfaceに張り付ける
